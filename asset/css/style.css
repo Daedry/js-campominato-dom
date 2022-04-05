@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo > img {
+  vertical-align: super;
+}
+
+.logo > h2 {
+  font-weight: bold;
+  align-self: center;
+}
+
+.difficulty {
+  display: flex;
+}
+
+#btn {
+  width: 80px;
+}
+
+#selection {
+  margin-left: 0.75rem;
+}
+
+#selection {
+  width: 150px;
+}
+
+/* main */
+
+main {
+  background-color: #e0d4d4;
+  height: 80vh;
+}
+
+.container {
+  width: 500px;
+  margin: auto;
+  padding: 2.5rem 0;
+  height: 80vh;
+}
+
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: calc(100% / 10);
+  border: 1px solid rgb(104, 11, 11);
+  aspect-ratio: 3 / 3;
+  color: rgb(61, 20, 20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+.cell:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: rgba(104, 11, 11, 0.726);
+  color: white;
+}
+
+/* footer */
+
+.end {
+  padding: 1.5rem 8rem;
+}
+
+/* others */
+
+.selected {
+  background-color: #0c3d97;
+  color: white;
+  transition: 0.25s ease;
+  transform: scale(1.01);
+  box-shadow: 0 0 18px 0px #0000004f;
+}
