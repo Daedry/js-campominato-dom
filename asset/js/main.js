@@ -36,13 +36,12 @@ function generateRandomNumbers(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-  let bombs = [];
-  for (let i = 0; i < 16; i++) {
-    const randomBombs = generateRandomNumbers(1, 50);
-    bombs.push(randomBombs);
-  }
-  //   console.log(bombs)
-
+let bombs = [];
+for (let i = 0; i < 16; i++) {
+  const randomBombs = generateRandomNumbers(1, 50);
+  bombs.push(randomBombs);
+}
+//   console.log(bombs)
 
 // Funzione per inizializzare la griglia di gioco
 const initialize = () => {
@@ -66,8 +65,8 @@ const initialize = () => {
       // Funzione per colorare le caselle al click
       cell.addEventListener("click", () => {
         // Assegno un evento click alla cella
-         // Seleziono la cella
-        if(bombs.includes(cell)){
+        // Seleziono la cella
+        if (bombs.includes(randomNumber)) {
           cell.classList.add("selected_bomb");
         } else {
           cell.classList.add("selected");
@@ -111,4 +110,3 @@ playButton.addEventListener("click", initialize);
 della difficoltà prescelta: le bombe.
 I numeri nella lista delle bombe non possono essere duplicati.
 */
-
