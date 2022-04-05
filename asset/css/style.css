@@ -95,7 +95,7 @@ main {
   box-shadow: 0 0 18px 0px #0000004f;
 }
 
-.selected_Bomb {
+.selected_bomb {
     background-color: rgba(104, 11, 11)
 ;    color: white;
     transition: 0.25s ease;
