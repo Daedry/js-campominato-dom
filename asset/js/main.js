@@ -45,7 +45,6 @@ for (let i = 0; i < 16; i++) {
 
 // Funzione per inizializzare la griglia di gioco
 const initialize = () => {
-  let bombs = generateRandomNumbers(1, 16);
 
   if (selectInput.value === "seleziona") {
     cells.innerHTML = ""; // Cancello la griglia di gioco
@@ -64,9 +63,8 @@ const initialize = () => {
 
       // Funzione per colorare le caselle al click
       cell.addEventListener("click", () => {
-        // Assegno un evento click alla cella
-        // Seleziono la cella
-        if (bombs.includes(randomNumber)) {
+        console.log(bombs)
+        if (bombs.includes(parseInt(this.innerHTML))) {
           cell.classList.add("selected_bomb");
         } else {
           cell.classList.add("selected");
