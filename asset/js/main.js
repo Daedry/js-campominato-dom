@@ -22,8 +22,6 @@ Al termine della partita il software deve comunicare il punteggio,
 cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 */
 
-
-
 // Selezione livello di difficoltà e generazione griglia in un input select
 let selectInput = document.getElementById("selection");
 
@@ -40,6 +38,8 @@ function generateRandomNumbers(min, max) {
 
 // Funzione per inizializzare la griglia di gioco
 const initialize = () => {
+  let bombs = generateRandomNumbers(1, 16);
+
   if (selectInput.value === "seleziona") {
     cells.innerHTML = ""; // Cancello la griglia di gioco
     alert("Selezionare un livello di difficoltà"); //avviso l'utente
@@ -47,16 +47,17 @@ const initialize = () => {
     // Se l'utente ha selezionato il lvl facile
     cells.innerHTML = "";
     // Genero una griglia di gioco con 50 celle
-    for (let i = 0; i < 50; i++) {
+    for (let i = 1; i <= 50; i++) {
       // Genero una griglia di gioco con 49 celle
-      const randomNumber = generateRandomNumbers(1, 50);
+      const randomNumber = i; // generateRandomNumbers(1, 50);
+    //   const bombs = generateBombs(50);
       let cell = document.createElement("div");
       cell.innerHTML = randomNumber;
       // Assegno la classe cell alla cella
       cell.classList.add("cell");
 
       // Funzione per colorare le caselle al click
-      cell.addEventListener("click", ()=> {
+      cell.addEventListener("click", () => {
         // Assegno un evento click alla cella
         cell.classList.add("selected"); // Seleziono la cella
       });
@@ -65,28 +66,27 @@ const initialize = () => {
     }
   } else if (selectInput.value === "medio") {
     cells.innerHTML = "";
-    for (let i = 0; i < 80; i++) {
-      const randomNumber = generateRandomNumbers(1, 80);
+    for (let i = 1; i <= 80; i++) {
+      const randomNumber = i; // generateRandomNumbers(1, 80);
       let cell = document.createElement("div");
       cell.innerHTML = randomNumber;
       cell.classList.add("cell");
-      cell.addEventListener("click", ()=> {
+      cell.addEventListener("click", () => {
         cell.classList.add("selected");
       });
       cells.append(cell);
     }
   } else if (selectInput.value === "facile") {
     cells.innerHTML = "";
-    for (let i = 0; i < 100; i++) {
-      const randomNumber = generateRandomNumbers(1, 100);
+    for (let i = 1; i <= 100; i++) {
+      const randomNumber = i; // generateRandomNumbers(1, 100);
       let cell = document.createElement("div");
       cell.innerHTML = randomNumber;
-      cell.classList.add('cell');
-      cell.addEventListener('click', ()=> {
-          cell.classList.add('selected');
+      cell.classList.add("cell");
+      cell.addEventListener("click", () => {
+        cell.classList.add("selected");
       });
       cells.append(cell);
-
     }
   }
 };
@@ -94,5 +94,18 @@ const initialize = () => {
 // Assegno un evento click al bottone per iniziare la partita
 playButton.addEventListener("click", initialize);
 
+/* 
+// Il computer deve generare 16 numeri casuali nello stesso range 
+della difficoltà prescelta: le bombe.
+I numeri nella lista delle bombe non possono essere duplicati.
+*/
 
-
+function generateBombs(max) {
+  //   const bomb = generateRandomNumbers(1, 16);
+  let bombs = [];
+  for (let i = 0; i < 16; i++) {
+    const randomBombs = generateRandomNumbers(1, max);
+    bombs.push(randomBombs);
+  }
+  //   console.log(bombs)
+}
